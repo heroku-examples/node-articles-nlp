@@ -20,8 +20,42 @@
   ],
   "env": {
     "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs",
-    "NODE_ENV": "production",
-    "VIEW_CACHE": "true",
-    "THRIFTY": "true"
+    "NODE_ENV": {
+      "description": "Some Node libraries change behavior if this is not production",
+      "value": "production"
+    },
+    "VIEW_CACHE": {
+      "description": "Cache rendered html views",
+      "value": "true"
+    },
+    "THRIFTY": {
+      "description": "use the web process to also process the job queue",
+      "value": "true"
+    },
+    "TIMEOUT": {
+      "description": "HTTP request maximum time",
+      "value": "5s"
+    },
+    "BUSY_MS": {
+      "description": "Minimum event loop delay before sending 503s",
+      "value": "2000"
+    },
+    "CONCURRENCY": {
+      "description": "Number of Cluster workers to fork",
+      "value": "4"
+    },
+    "SESSION_SECRET": {
+      "description": "a secret key for sessions",
+      "generator": "secret"
+    },
+    "COOKIE_SECRET": {
+      "description": "a secret key for signed cookies",
+      "generator": "secret"
+    },
+    "BLITZ_KEY": {
+      "description": "your authorization key for blitz.io load testing",
+      "value": "",
+      "required": false
+    }
   }
 }
