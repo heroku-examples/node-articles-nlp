@@ -1,0 +1,26 @@
+{
+  "name": "Node-Production",
+  "description": "An Express 4 app that works all the way into production",
+  "website": "https://github.com/hunterloftis/node-production",
+  "repository": "https://github.com/hunterloftis/node-production",
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "success_url": "/",
+  "keywords": [
+    "node",
+    "express",
+    "production"
+  ],
+  "scripts": {
+  },
+  "addons": [
+    "mongohq",
+    "rediscloud",
+    "cloudamqp"
+  ],
+  "env": {
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs",
+    "NODE_ENV": "production",
+    "VIEW_CACHE": "true",
+    "THRIFTY": "true"
+  }
+}
