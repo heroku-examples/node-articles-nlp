@@ -11,6 +11,7 @@
     "production"
   ],
   "scripts": {
+    "postdeploy": "sleep 60"
   },
   "addons": [
     "mongohq",
