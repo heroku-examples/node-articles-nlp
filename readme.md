@@ -74,7 +74,7 @@ This enables horizontally scaling both web traffic and long-running jobs.
 The default deploy configuration includes `THRIFTY=true`, which starts the app in single-dyno mode (free!).
 With `THRIFTY=true`, the web process handles both http requests and queued jobs.
 
-Similarly, the default configuration does not include a CONCURRENCY config, which means only one Cluster
+Similarly, the default configuration does not include a `CONCURRENCY` value, which means only one Cluster
 worker will be created per process. This is to keep under free levels of addon connection limits (like redis).
 
 Of course, a production app should never run in a single instance or make users wait for worker processes.
