@@ -42,7 +42,7 @@ cd node-articles-nlp
 heroku create
 
 heroku addons:add mongohq
-heroku addons:add redistogo
+heroku addons:add rediscloud
 heroku addons:add cloudamqp
 
 heroku config:set NODE_ENV=production
