@@ -48,6 +48,7 @@ heroku config:set VIEW_CACHE=true
 heroku config:set THRIFTY=true
 
 git push heroku master
+heroku open
 ```
 
 ## Config
