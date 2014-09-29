@@ -85,9 +85,12 @@ When you're ready to test in staging or deploy to production, you can scale beyo
 
 ```
 heroku config:unset THRIFTY
-heroku config:set CONCURRENCY=3
+heroku config:set CONCURRENCY=4
 heroku ps:scale web=2X:2 worker=2X:1
 ```
+
+**note:** You'll need to upgrade your addons in order to scale your processes.
+The free addons from this app restrict the number of concurrent connections you can maintain.
 
 #### Locally
 
