@@ -1,8 +1,8 @@
 {
-  "name": "Node-Production",
+  "name": "Node-Articles-NLP",
   "description": "An Express 4 app that works all the way into production",
-  "website": "https://github.com/hunterloftis/node-production",
-  "repository": "https://github.com/hunterloftis/node-production",
+  "website": "https://github.com/heroku/node-articles-nlp",
+  "repository": "https://github.com/heroku/node-articles-nlp",
   "logo": "https://node-js-sample.herokuapp.com/node.svg",
   "success_url": "/",
   "keywords": [
