@@ -53,7 +53,7 @@
       "generator": "secret"
     },
     "BLITZ_KEY": {
-      "description": "your authorization key for blitz.io load testing",
+      "description": "authorization key for blitz.io load testing (optional)",
       "value": "",
       "required": false
     }
