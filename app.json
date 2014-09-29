@@ -42,7 +42,7 @@
     },
     "CONCURRENCY": {
       "description": "Number of Cluster workers to fork",
-      "value": "4"
+      "value": "2"
     },
     "SESSION_SECRET": {
       "description": "a secret key for sessions",
