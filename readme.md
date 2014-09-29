@@ -1,8 +1,8 @@
-# Node-Production
+# Node-Articles-NLP
 
 Running Node all the way from development to production on Heroku.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/hunterloftis/node-production)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/heroku-examples/node-articles-nlp)
 
 ## Local dependencies
 
@@ -27,51 +27,27 @@ $ npm install
 
 ## Deploying
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/hunterloftis/node-production)
+Deploying is easy - just use the Heroku Button:
 
-If you would rather clone locally and then deploy from the CLI:
-
-```
-$ script/create
-
-(app deploys)
-
-$ heroku open
-
-(check it out)
-(hack...hack...hack)
-
-$ git commit -am 'awesome changes'
-$ git push heroku master
-```
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/heroku-examples/node-articles-nlp)
 
 ## Config
 
-Environment variables are mapped to a config object in [lib/config.js](https://github.com/hunterloftis/node-production/blob/master/lib/config.js).
+Environment variables are mapped to a config object in [lib/config.js](https://github.com/heroku-examples/node-articles-nlp/blob/master/lib/config.js).
 This provides reasonable defaults as well as a layer of generalization
 (`process.env.REDISCLOUD_URL` => `config.redis_url`).
 
-You can override the local defaults by
+You can locally override the defaults by
 [adding variables to a .env file](https://github.com/strongloop/node-foreman#environmental-variables).
 
 ## Scaling
 
 The app is separated into two tiers:
 
-- the web tier ([server.js](https://github.com/hunterloftis/node-production/blob/master/lib/server.js))
-- the worker tier ([worker.js](https://github.com/hunterloftis/node-production/blob/master/lib/worker.js))
+- the web tier ([server.js](https://github.com/heroku-examples/node-articles-nlp/blob/master/lib/server.js))
+- the worker tier ([worker.js](https://github.com/heroku-examples/node-articles-nlp/blob/master/lib/worker.js))
 
 This enables horizontally scaling both web traffic and long-running jobs.
-
-#### Locally
-
-`npm start` runs [node-foreman](http://strongloop.github.io/node-foreman/),
-which will check the [Procfile](https://github.com/hunterloftis/node-production/blob/master/Procfile)
-and start a single web process and a single worker process.
-
-To test that your app behaves correctly when clustered in multiple processes,
-you can [specify process scales](https://github.com/strongloop/node-foreman#advanced-usage) to node-forman
-and [set `CONCURRENCY=4`](https://github.com/strongloop/node-foreman#environmental-variables) in a local .env file.
 
 #### On Heroku
 
@@ -91,6 +67,16 @@ heroku config:set CONCURRENCY=3
 heroku ps:scale web=2X:2 worker=2X:1
 ```
 
+#### Locally
+
+`npm start` runs [node-foreman](http://strongloop.github.io/node-foreman/),
+which will check the [Procfile](https://github.com/heroku-examples/node-articles-nlp/blob/master/Procfile)
+and start a single web process and a single worker process.
+
+To test that your app behaves correctly when clustered in multiple processes,
+you can [specify process scales](https://github.com/strongloop/node-foreman#advanced-usage) to node-forman
+and [set `CONCURRENCY=4`](https://github.com/strongloop/node-foreman#environmental-variables) in a local .env file.
+
 ## Architecture
 
 Writing maintainable Node apps is all about separating concerns into small, well-defined modules.
@@ -98,17 +84,17 @@ This barebones app has three distinct components with their own responsibilities
 
 #### App
 
-The business logic is all in [lib/app](https://github.com/hunterloftis/node-production/tree/master/lib/app).
+The business logic is all in [lib/app](https://github.com/heroku-examples/node-articles-nlp/tree/master/lib/app).
 This module orchestrates and provides a facade for the underlying
 MongoDB database and the RabbitMQ job queue.
 
 #### Web
 
-The user-facing portion of the project lies in [lib/web](https://github.com/hunterloftis/node-production/tree/master/lib/web).
+The user-facing portion of the project lies in [lib/web](https://github.com/heroku-examples/node-articles-nlp/tree/master/lib/web).
 This module is responsible for providing an http interface and routing requests.
 It *shows* things and relies on an App instance to *do* things.
 
 #### Worker
 
-The background processes run through [lib/worker](https://github.com/hunterloftis/node-production/blob/master/lib/worker.js).
+The background processes run through [lib/worker](https://github.com/heroku-examples/node-articles-nlp/blob/master/lib/worker.js).
 This module is tiny - it just instantiates an App instance to process the job queue.
