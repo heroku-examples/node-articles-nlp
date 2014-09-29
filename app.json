@@ -34,7 +34,7 @@
     },
     "TIMEOUT": {
       "description": "HTTP request maximum time",
-      "value": "5s"
+      "value": "5000"
     },
     "BUSY_MS": {
       "description": "Minimum event loop delay before sending 503s",
@@ -42,7 +42,7 @@
     },
     "CONCURRENCY": {
       "description": "Number of Cluster workers to fork",
-      "value": "2"
+      "value": "1"
     },
     "SESSION_SECRET": {
       "description": "a secret key for sessions",
