@@ -31,6 +31,25 @@ Deploying is easy - just use the Heroku Button:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/heroku-examples/node-articles-nlp)
 
+If you'd rather clone locally and then deploy through the CLI, you can do that too:
+
+```
+git clone git@github.com:heroku-examples/node-articles-nlp.git
+cd node-articles-nlp
+
+heroku create
+
+heroku addons:add mongohq
+heroku addons:add redistogo
+heroku addons:add cloudamqp
+
+heroku config:set NODE_ENV="production"
+heroku config:set VIEW_CACHE="true"
+heroku config:set THRIFTY="true"
+
+git push heroku master
+```
+
 ## Config
 
 Environment variables are mapped to a config object in [lib/config.js](https://github.com/heroku-examples/node-articles-nlp/blob/master/lib/config.js).
