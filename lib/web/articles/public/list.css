@@ -59,6 +59,7 @@
   padding: 5px 0 4px 0;
   position: relative;
   top: 2px;
+  cursor: pointer;
 }
 
 .ArticleForm-error {
@@ -76,8 +77,7 @@
   color: inherit;
   display: block;
   background: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 11px 0 11px 142px;
+  padding: 11px 0;
   position: relative;
   min-height: 128px;
   width: 100%;
@@ -89,16 +89,50 @@
   font-family: georgia, serif;
   color: #79589F;
   line-height: 2;
+  text-decoration: none;
 }
 
 .ArticleList-thumb {
-  position: absolute;
-  left: 0;
-  top: 0;
+  display: inline-block;
+  vertical-align: top;
   width: 128px;
   height: 128px;
   background: #eee;
   border: none;
+}
+
+.ArticleList-content {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 20px;
+  overflow: hidden;
+  width: 750px;
+}
+
+.ArticleList-votes {
+  display: inline-block;
+  vertical-align: top;
+  width: 60px;
+  margin: 0 20px 0 0;
+  text-align: center;
+  background: #eee;
+  color: #79589F;
+}
+
+.ArticleList-votes > a {
+  color: #fff;
+  background: #79589f;
+  display: block;
+  width: 100%;
+  padding: 3px 0;
+  cursor: pointer;
+}
+
+.ArticleList-votes > span {
+  display: block;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .ArticleList-topics {
