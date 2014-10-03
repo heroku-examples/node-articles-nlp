@@ -19,7 +19,6 @@
     "cloudamqp"
   ],
   "env": {
-    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs",
     "THRIFTY": {
       "description": "run on a single (free) dyno",
       "value": "true"
