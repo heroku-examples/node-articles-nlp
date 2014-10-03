@@ -23,10 +23,6 @@
       "description": "run on a single (free) dyno",
       "value": "true"
     },
-    "SESSION_SECRET": {
-      "description": "a secret key for sessions",
-      "generator": "secret"
-    },
     "COOKIE_SECRET": {
       "description": "a secret key for signed cookies",
       "generator": "secret"
