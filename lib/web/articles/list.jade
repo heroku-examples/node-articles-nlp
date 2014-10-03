@@ -20,9 +20,8 @@ html(lang='en')
         .ArticleList-article
           .ArticleList-votes
             span(data-bind='text: votes')
-            a(data-bind='click: voteUp') +1
-          span(data-bind='if: hasImage')
-            img.ArticleList-thumb(data-bind='attr: { src: image }')
+            a(data-bind='click: voteUp, css: { "L-hidden": !canVote() }') +1
+          img.ArticleList-thumb(data-bind='attr: { src: image }, css: { "L-hidden": !hasImage() }')
           .ArticleList-content
             a.ArticleList-title(data-bind='text: title, attr: { href: url }' target='_blank')
             p.ArticleList-topics(data-bind='text: topicList')

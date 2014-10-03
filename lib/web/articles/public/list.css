@@ -10,7 +10,7 @@
 }
 
 .L-hidden {
-  display: none;
+  display: none !important;
 }
 
 .Global {
