@@ -2,7 +2,7 @@ doctype html
 html(lang='en')
   head
     title Heroku Articles
-    link(rel='stylesheet' type='text/css' href='/articles.css')
+    link(rel='stylesheet' type='text/css' href='/list.css')
 
   body.Global
     .L-wrap.L-hidden(data-bind='css: { "L-hidden": false }')
@@ -17,15 +17,19 @@ html(lang='en')
       .ArticlePending.L-push(data-bind='visible: isPending')
 
       .ArticleList(data-bind='foreach: articles')
-        a.ArticleList-article(data-bind='attr: { href: url }' target='_blank')
-          header.ArticleList-title(data-bind='text: title')
-          img.ArticleList-thumb(data-bind='attr: { src: image }')
-          p.ArticleList-topics(data-bind='text: topicList')
-          p.ArticleList-prediction
-            span(data-bind='text: minutes + "-minute read"')
-            span(data-bind='text: style')
-            span(data-bind='text: "generally " + sentiment, css: { isNegative: isNegative, isPositive: isPositive }')
+        .ArticleList-article
+          .ArticleList-votes
+            span(data-bind='text: votes')
+            a(data-bind='click: voteUp, css: { "L-hidden": !canVote() }') +1
+          img.ArticleList-thumb(data-bind='attr: { src: image }, css: { "L-hidden": !hasImage() }')
+          .ArticleList-content
+            a.ArticleList-title(data-bind='text: title, attr: { href: url }' target='_blank')
+            p.ArticleList-topics(data-bind='text: topicList')
+            p.ArticleList-prediction
+              span(data-bind='text: minutes + "-minute read"')
+              span(data-bind='text: style')
+              span(data-bind='text: "generally " + sentiment, css: { isNegative: isNegative, isPositive: isPositive }')
 
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js')
-    script(src='/articles.js')
+    script(src='/list.js')
