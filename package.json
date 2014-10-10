@@ -4,7 +4,8 @@
   "description": "A minimum viable node app for production deployment",
   "main": "index.js",
   "scripts": {
-    "start": "nf start"
+    "start": "nf start",
+    "reset": "script/reset"
   },
   "author": "Hunter Loftis <hunter@heroku.com>",
   "repository": "hunterloftis/node-production",
@@ -20,7 +21,7 @@
     "express": "^4.6.1",
     "express-session": "^1.6.5",
     "foreman": "^0.4.2",
-    "jackrabbit": "^2.2.0",
+    "jackrabbit": "^2.3.0",
     "jade": "^1.5.0",
     "lodash": "^2.4.1",
     "logfmt": "^1.1.2",
@@ -31,6 +32,7 @@
     "morgan": "^1.2.0",
     "node-uuid": "^1.4.1",
     "promise": "^5.0.0",
+    "redis": "^0.12.1",
     "redis-url": "^0.2.0",
     "sentiment": "^1.0.1",
     "serve-favicon": "~2.0.1",

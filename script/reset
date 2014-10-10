@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+var url = require('url');
+var redisUrl = require('redis-url');
+var Promise = require('promise');
+
+var config = require('../lib/config');
+var app = require('../lib/app');
+
+var instance = app(config);
+var redis = redisUrl.connect(config.redis_url);
+
+instance.on('ready', reset);
+
+function reset() {
+  console.log('Resetting...');
+  redis.flushdb();
+
+  var articles = instance.deleteAllArticles();
+  var pending = instance.purgePendingArticles();
+
+  Promise.all([articles, pending])
+    .then(onComplete);
+
+  function onComplete() {
+    console.log('Sessions, articles, and article queue have been reset.');
+    process.exit();
+  }
+}
