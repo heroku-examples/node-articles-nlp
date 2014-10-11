@@ -27,6 +27,7 @@
     "logfmt": "^1.1.2",
     "loopbusy": "^1.0.1",
     "mongoose": "^3.8.13",
+    "mongoose-cachebox": "^1.2.0",
     "mongoose-random": "^0.1.1",
     "mongoose-timestamp": "^0.3.0",
     "morgan": "^1.2.0",
