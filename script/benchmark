@@ -22,7 +22,7 @@ read -p "Press enter when you receive their provisioning-complete email (or in 2
 heroku config:set -a $app_name BENCHMARK=true CONCURRENCY=4 WORKER_CONCURRENCY=4
 
 # push and scale
-git push benchmark repro-bench:master
+git push benchmark master
 heroku scale web=24:1x worker=16:1x -a $app_name
 
 # open queue and app
