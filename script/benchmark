@@ -15,6 +15,7 @@ heroku addons:add rediscloud:100 -a $app_name
 
 # wait for larger addons to provision
 echo "CloudAMQP takes a while to provision."
+echo ""
 read -p "Press enter when you receive their provisioning-complete email (or in 2 mins)."
 
 # configure
@@ -31,10 +32,13 @@ heroku open -a $app_name
 # run blitz
 heroku addons:add blitz:5000 -a $app_name
 echo "Use the Blitz GUI to run tests against http://$app_name.herokuapp.com/benchmark.json"
+echo ""
 read -p "Press enter to open Blitz."
 heroku addons:open blitz -a $app_name
+echo ""
 read -p "Press enter when you're done testing."
 
 # destroy the app & all addons
 heroku destroy --confirm $app_name
+git remote rm benchmark
 echo "Test complete."
