@@ -42,5 +42,4 @@ read -p "Press enter when you're done testing."
 
 # destroy the app & all addons
 heroku destroy --confirm $app_name
-git remote rm benchmark
 echo "Test complete."
