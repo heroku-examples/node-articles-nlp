@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nf start",
-    "reset": "script/reset"
+    "reset": "script/reset",
+    "benchmark": "script/benchmark"
   },
   "author": "Hunter Loftis <hunter@heroku.com>",
   "repository": "hunterloftis/node-production",

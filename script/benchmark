@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+
+app_name="nlp-benchmark-`openssl rand -hex 8`"
+
+# create the app
+heroku create $app_name -r benchmark
+
+# attach addons
+heroku addons:add cloudamqp:bunny -a $app_name
+heroku addons:add mongohq:ssd_1g_elastic -a $app_name
+heroku addons:add rediscloud:100 -a $app_name
+
+# wait for larger addons to provision
+echo "CloudAMQP takes a while to provision."
+read -p "Press enter when you receive their provisioning-complete email (or in 2 mins)."
+
+# configure
+heroku config:set -a $app_name BENCHMARK=true CONCURRENCY=4 WORKER_CONCURRENCY=4
+
+# push and scale
+git push benchmark repro-bench:master
+heroku scale web=24:1x worker=16:1x -a $app_name
+
+# open queue and app
+heroku addons:open cloudamqp -a $app_name
+heroku open -a $app_name
+
+# run blitz
+heroku addons:add blitz:5000 -a $app_name
+echo "Use the Blitz GUI to run tests against http://$app_name.herokuapp.com/benchmark.json"
+read -p "Press enter to open Blitz."
+heroku addons:open blitz -a $app_name
+read -p "Press enter when you're done testing."
+
+# destroy the app & all addons
+heroku destroy --confirm $app_name
+echo "Test complete."
