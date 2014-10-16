@@ -33,8 +33,8 @@ heroku open -a $app_name
 
 # run blitz
 heroku addons:add blitz:5000 -a $app_name
-echo "Use the Blitz GUI to run tests against http://$app_name.herokuapp.com/benchmark.json"
 echo ""
+echo "Use the Blitz GUI to run tests against http://$app_name.herokuapp.com/benchmark.json"
 read -p "Press enter to open Blitz."
 heroku addons:open blitz -a $app_name
 echo ""
