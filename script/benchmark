@@ -19,7 +19,7 @@ echo "CloudAMQP takes a while to provision."
 read -p "Press enter when you receive their provisioning-complete email (or in 2 mins)."
 
 # configure
-heroku config:set -a $app_name BENCHMARK=true CONCURRENCY=4 WORKER_CONCURRENCY=4
+heroku config:set -a $app_name BENCHMARK=true CONCURRENCY=4 WORKER_CONCURRENCY=4 NODE_ENV=production VIEW_CACHE=true
 
 # push and scale
 git push benchmark master
