@@ -9,9 +9,9 @@ app_name="nlp-benchmark-`openssl rand -hex 8`"
 heroku create $app_name -r benchmark
 
 # attach addons
-heroku addons:add cloudamqp:bunny -a $app_name
+heroku addons:add cloudamqp:rabbit -a $app_name
 heroku addons:add mongohq:ssd_1g_elastic -a $app_name
-heroku addons:add rediscloud:100 -a $app_name
+heroku addons:add rediscloud:250 -a $app_name
 
 # wait for larger addons to provision
 echo ""
