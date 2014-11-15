@@ -16,21 +16,25 @@
   "addons": [
     "mongohq",
     "rediscloud",
-    "cloudamqp"
+    "cloudamqp",
+    "blitz"
   ],
   "env": {
     "THRIFTY": {
       "description": "run on a single (free) dyno",
       "value": "true"
     },
+    "CONCURRENCY": {
+      "description": "level of concurrency for web processes",
+      "value": 4
+    },
+    "WORKER_CONCURRENCY": {
+      "description": "level of concurrency for worker processes",
+      "value": 4
+    },
     "COOKIE_SECRET": {
       "description": "a secret key for signed cookies",
       "generator": "secret"
-    },
-    "BLITZ_KEY": {
-      "description": "authorization key for blitz.io load testing (optional)",
-      "value": "",
-      "required": false
     }
   }
 }
