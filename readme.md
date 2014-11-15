@@ -8,16 +8,14 @@ Check it out at [http://node-articles-nlp.herokuapp.com/](http://node-articles-n
 
 ## Local dependencies
 
-- [Redis](http://redis.io/) for sessions
 - [MongoDB](http://www.mongodb.org/) for data
 - [RabbitMQ](http://www.rabbitmq.com/) for job queueing
 
 ## Installing
 
 ```
-$ brew install redis mongodb rabbitmq
+$ brew install mongodb rabbitmq
 $ brew services start mongodb
-$ brew services start redis
 $ brew services start rabbitmq
 $ npm install
 ```
@@ -42,7 +40,6 @@ cd node-articles-nlp
 heroku create
 
 heroku addons:add mongohq
-heroku addons:add rediscloud
 heroku addons:add cloudamqp
 
 heroku config:set NODE_ENV=production
@@ -57,7 +54,7 @@ heroku open
 
 Environment variables are mapped to a config object in [lib/config.js](https://github.com/heroku-examples/node-articles-nlp/blob/master/lib/config.js).
 This provides reasonable defaults as well as a layer of generalization
-(`process.env.REDISCLOUD_URL` => `config.redis_url`).
+(`process.env.MONGOHQ_URL` => `config.mongo_url`).
 
 You can locally override the defaults by
 [adding variables to a .env file](https://github.com/strongloop/node-foreman#environmental-variables).
@@ -76,21 +73,13 @@ This enables horizontally scaling both web traffic and long-running jobs.
 The default deploy configuration includes `THRIFTY=true`, which starts the app in single-dyno mode (free!).
 With `THRIFTY=true`, the web process handles both http requests and queued jobs.
 
-Similarly, the default configuration does not include a `CONCURRENCY` value, which means only one Cluster
-worker will be created per process. This is to keep under free levels of addon connection limits (like redis).
-
 Of course, a production app should never run in a single instance or make users wait for worker processes.
-Additionally, allowing Cluster to take advantage of all the CPUs on a dyno can improve performance.
 When you're ready to test in staging or deploy to production, you can scale beyond single-dyno mode:
 
 ```
 heroku config:unset THRIFTY
-heroku config:set CONCURRENCY=4
-heroku ps:scale web=2X:2 worker=2X:1
+heroku ps:scale web=2 worker=2
 ```
-
-**note:** You'll need to upgrade your addons in order to scale your processes.
-The free addons from this app restrict the number of concurrent connections you can maintain.
 
 #### Locally
 
