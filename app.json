@@ -17,7 +17,12 @@
     "mongohq",
     "rediscloud",
     "cloudamqp",
-    "blitz"
+    "blitz",
+    "logentries",
+    "papertrail",
+    "librato",
+    "nodetime",
+    "newrelic:stark"
   ],
   "env": {
     "THRIFTY": {
