@@ -26,11 +26,11 @@
     },
     "CONCURRENCY": {
       "description": "level of concurrency for web processes",
-      "value": "4"
+      "value": "1"
     },
     "WORKER_CONCURRENCY": {
       "description": "level of concurrency for worker processes",
-      "value": "4"
+      "value": "1"
     },
     "COOKIE_SECRET": {
       "description": "a secret key for signed cookies",
