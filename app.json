@@ -14,7 +14,7 @@
     "postdeploy": "echo 'restarting'"
   },
   "addons": [
-    "mongohq",
+    "mongolab",
     "rediscloud",
     "cloudamqp",
     "blitz"
