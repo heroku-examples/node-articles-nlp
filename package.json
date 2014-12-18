@@ -35,6 +35,5 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": "0.11.x"
   }
 }
