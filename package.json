@@ -4,6 +4,7 @@
   "description": "A minimum viable node app for production deployment",
   "main": "index.js",
   "scripts": {
+    "postinstall": "exit 1",
     "start": "nf start",
     "reset": "script/reset",
     "benchmark": "script/benchmark"
