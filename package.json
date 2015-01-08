@@ -36,6 +36,7 @@
   },
   "devDependencies": {},
   "engines": {
-    "npm": "1.2"
+    "node": "0.10.33",
+    "npm": "1.4.28"
   }
 }
