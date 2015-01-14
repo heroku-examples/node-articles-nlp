@@ -35,6 +35,6 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": "0.10.x"
+    "iojs": "1.0.x"
   }
 }
