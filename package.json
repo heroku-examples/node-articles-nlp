@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "amqplib": "^0.2.1",
-    "body-parser": "^1.5.0"
+    "body-parser": "^1.5.0",
     "compression": "^1.2.0",
     "cookie-session": "^1.0.2",
     "express": "^4.9.7",
