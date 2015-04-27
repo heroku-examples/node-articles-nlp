@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nf start -j Procfile_dev

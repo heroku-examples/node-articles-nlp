@@ -1,0 +1,2 @@
+web: nodemon lib/server.js
+worker: nodemon lib/worker.js
