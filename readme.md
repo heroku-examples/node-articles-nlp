@@ -70,8 +70,10 @@ This enables horizontally scaling both web traffic and long-running jobs.
 
 #### On Heroku
 
-The default deploy configuration includes `THRIFTY=true`, which starts the app in single-dyno mode (free!).
+The default deploy configuration includes `THRIFTY=true`, which starts the app in single-dyno mode to avoid charges.
 With `THRIFTY=true`, the web process handles both http requests and queued jobs.
+Keep in mind that this is [a specific setting for this app](https://github.com/heroku-examples/node-articles-nlp/blob/ff581ec20b843e9c37c5ccdc6d1a175396311531/lib/server.js#L28),
+as `THRIFTY` is not a standard Heroku configuration.
 
 Of course, a production app should never run in a single instance or make users wait for worker processes.
 When you're ready to test in staging or deploy to production, you can scale beyond single-dyno mode:
