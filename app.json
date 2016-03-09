@@ -16,8 +16,7 @@
   "addons": [
     "mongolab",
     "rediscloud",
-    "cloudamqp",
-    "blitz"
+    "cloudamqp"
   ],
   "env": {
     "THRIFTY": {
