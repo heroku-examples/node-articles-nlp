@@ -39,8 +39,8 @@ cd node-articles-nlp
 
 heroku create
 
-heroku addons:add mongohq
-heroku addons:add cloudamqp
+heroku addons:create mongohq
+heroku addons:create cloudamqp
 
 heroku config:set NODE_ENV=production
 heroku config:set VIEW_CACHE=true
