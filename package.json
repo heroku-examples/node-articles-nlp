@@ -4,6 +4,7 @@
   "description": "A minimum viable node app for production deployment",
   "main": "index.js",
   "scripts": {
+    "dev-start": "script/dev-start",
     "start": "nf start",
     "reset": "script/reset",
     "benchmark": "script/benchmark"
@@ -33,7 +34,9 @@
     "superagent": "^0.18.2",
     "throng": "^1.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.3.7"
+  },
   "engines": {
     "iojs": "1.0.x"
   }
